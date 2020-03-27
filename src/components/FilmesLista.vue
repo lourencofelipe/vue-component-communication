@@ -22,7 +22,7 @@
 
       <FilmesListaItenInfo v-if="!editar" :filme="filmeSelecionado" @editarFilme="editarFilme"/>
 
-      <FilmesListaItenEditar v-else filme="filmeSelecionado" />
+      <FilmesListaItenEditar v-else :filme="filmeSelecionado" />
 
     </div>
 
