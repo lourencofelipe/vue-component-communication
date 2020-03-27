@@ -42,9 +42,13 @@ export default {
                 )
             },
             get() {
-                this.filmeLocal = this.filme
-                return this.filmeLocal
+                return this.filme
             }
+        }
+    },
+    watch: {
+        filme(novoFilme) {
+            this.filmeLocal = Object.assign({}, novoFilme)
         }
     },
     methods: {
