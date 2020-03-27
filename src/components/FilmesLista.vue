@@ -34,9 +34,9 @@ export default {
   data() {
     return {
       filmes: [
-      'Vingadores: Guerra Infinita',
-      'Homem Formiga',
-      'Pantera Negra'
+        { id: 1, titulo: 'Vingadores: Guerra Infinita' },
+        { id: 2, titulo: 'Homem Formiga' },
+        { id: 4, titulo: 'Pantera Negra' }
       ]
     }
   }
