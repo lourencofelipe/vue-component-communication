@@ -4,7 +4,12 @@
 
         <div class="form-group">
             <label>Título:</label>
-            <input type="text" class="form-control" placeholder="Insira o título" :value="filme.titulo">
+            <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Insira o título" 
+            :value="filmeSelecionado.titulo"
+            @input="filmeSelecionado = { propriedade: 'titulo', valor: $event.target.value }">
         </div>
         
     </div>
@@ -16,7 +21,27 @@ export default {
         filme: {
             type: Object,
             required: true
+        },
+    },
+    data(){
+        return {
+            filmeLocal: this.filme
+        }
+    },
+    computed: {
+        filmeSelecionado: {
+            set(dados){
+                this.filmeLocal = Object.assign(
+                    {},
+                    this.filmeLocal,
+                    { [dados.propriedade]: dados.valor }
+                )
+            },
+            get() {
+                return this.filme
+            }
         }
     }
+
 }
 </script>
