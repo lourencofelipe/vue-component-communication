@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         <span>{{ filme.titulo }}</span>
-        <button class="btn btn-success float-right">Editar</button>
+        <button @click="selecionar" class="btn btn-secondary float-right">Selecionar</button>
     </li>
 </template>
 
@@ -13,9 +13,9 @@ export default {
             required: true
         }
     },
-    computed: {
-        filmeTituloConcat(){
-            return `Titulo: ${this.filmeTitulo}`
+    methods: {
+        selecionar(){
+            this.$emit('selecionarFilme', this.filme)
         }
     }
 }

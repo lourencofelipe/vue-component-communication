@@ -7,7 +7,12 @@
       <h2>Filmes</h2>
 
       <div class="list-group list-group-flush">
-        <filmesListaIten v-for="filme in filmes" :key="filme.id" :filme="filme"/>
+        <filmesListaIten 
+            v-for="filme in filmes" 
+            :key="filme.id" 
+            :filme="filme" 
+            @selecionarFilme="filmeSelecionado = $event"
+            />
       </div>
     </div>
 
@@ -37,8 +42,9 @@ export default {
         { id: 1, titulo: 'Vingadores: Guerra Infinita' },
         { id: 2, titulo: 'Homem Formiga' },
         { id: 4, titulo: 'Pantera Negra' }
-      ]
+      ],
+    filmeSelecionado: undefined
     }
-  }
+  },
 }
 </script>
