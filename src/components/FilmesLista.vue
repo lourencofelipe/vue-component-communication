@@ -12,6 +12,7 @@
             :key="filme.id" 
             :filme="filme" 
             @selecionarFilme="filmeSelecionado = $event"
+            :class="aplicarClasseAtiva(filme)"
             />
       </div>
     </div>
@@ -46,5 +47,12 @@ export default {
     filmeSelecionado: undefined
     }
   },
+  methods: {
+    aplicarClasseAtiva(filmeIterado) {
+      return {
+        active: this.filmeSelecionado && this.filmeSelecionado.id === filmeIterado.id
+      }
+    }
+  }
 }
 </script>
