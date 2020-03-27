@@ -6,17 +6,20 @@
 </template>
 
 <script>
-export default {
-    props: {
-        filme: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-        selecionar(){
-            this.$emit('selecionarFilme', this.filme)
+    import { eventBus } from './../main'
+    export default {
+
+        props: {
+            filme: {
+                type: Object,
+                required: true
+            }
+        },
+        methods: {
+            selecionar(){
+                //this.$emit('selecionarFilme', this.filme)
+                eventBus.$emit('selecionarFilme', this.filme)
+            }
         }
     }
-}
 </script>
