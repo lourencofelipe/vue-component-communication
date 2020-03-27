@@ -20,7 +20,9 @@
     <!-- coluna 2 -->
     <div class="col-4">
 
-      <FilmesListaItenInfo :filme="filmeSelecionado"/>
+      <FilmesListaItenInfo v-if="!editar" :filme="filmeSelecionado" @editarFilme="editarFilme"/>
+
+      <FilmesListaItenEditar v-else filme="filmeSelecionado" />
 
     </div>
 
@@ -30,11 +32,13 @@
 <script>
 
 import FilmesListaIten from './FilmesListaIten.vue'
+import FilmesListaItenEditar from './FilmesListaItenEditar.vue'
 import FilmesListaItenInfo from './FilmesListaItenInfo.vue'
 
 export default {
   components: {
     FilmesListaIten,
+    FilmesListaItenEditar,
     FilmesListaItenInfo
   },
   data() {
@@ -44,7 +48,8 @@ export default {
         { id: 2, titulo: 'Homem Formiga' },
         { id: 4, titulo: 'Pantera Negra' }
       ],
-    filmeSelecionado: undefined
+    filmeSelecionado: undefined,
+    editar: false
     }
   },
   methods: {
@@ -52,6 +57,10 @@ export default {
       return {
         active: this.filmeSelecionado && this.filmeSelecionado.id === filmeIterado.id
       }
+    },
+    editarFilme(filme) {
+      this.editar = true
+      this.filmeSelecionado = filme
     }
   }
 }
