@@ -7,7 +7,7 @@
       <h2>Filmes</h2>
 
       <div class="list-group list-group-flush">
-        <filmesListaIten v-for="(filme, index) in filmes" :key="index" :filmeTitulo="filme"/>
+        <filmesListaIten v-for="filme in filmes" :key="filme.id" :filme="filme"/>
       </div>
     </div>
 
